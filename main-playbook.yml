@@ -1,0 +1,11 @@
+---
+- name: Основной плейбук
+  hosts: all
+  become: yes
+  become_method: runas
+  become_user: Administrator
+  vars:
+    admin_password: 'packer'
+  tasks:
+    - name: Включить плейбук AD-Install
+      import_tasks: Playbooks/AD-Install.yml
